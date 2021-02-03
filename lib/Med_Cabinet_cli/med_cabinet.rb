@@ -40,7 +40,7 @@ def symptoms
     puts "What are your symptoms?"
     symptoms = gets.chomp().capitalize()
     url = "https://priaid-symptom-checker-v1.p.rapidapi.com/symptoms?language=en-gb"
-    headers = {"x-rapidapi-key": "21525eb06bmsh2008b6883cf2c11p192e81jsna832d0f33f92"}
+    headers = {"x-rapidapi-key"; ENV['API_KEY']}
     data = JSON.parse(RestClient.get(url, headers))
 
     data.each do |symp|
@@ -53,12 +53,17 @@ end
 def diagnosis
     puts "Your diagnosis is"
     url = "https://priaid-symptom-checker-v1.p.rapidapi.com/diagnosis?symptoms=[#{$symp_id}]&gender=#{$gender}&year_of_birth=#{$year}&language=en-gb"
-    headers = {"x-rapidapi-key": "21525eb06bmsh2008b6883cf2c11p192e81jsna832d0f33f92"}
+    headers = {"x-rapidapi-key": ENV['API_KEY']}
     data = JSON.parse(RestClient.get(url, headers))
     data.each do |diagno|
         puts diagno["Issue"]["ProfName"]
     end
 end
+
+
+
+
+
 
 
 

@@ -3,6 +3,9 @@
 require "bundler/setup"
 require "Med_Cabinet_cli"
 
+puts "API_KEY: #{ENV['API_KEY']}"
+
+
 welcome
 disclaimer
 get_age
