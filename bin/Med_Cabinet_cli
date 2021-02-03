@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "Med_Cabinet_cli"
+
+welcome
+disclaimer
+get_age
+male_or_female
+symptoms
+diagnosis
